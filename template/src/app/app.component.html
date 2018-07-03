@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <form  id=filter>
+    <label>Find Your wine</label>
+    <input type="text" name='term'  [(ngModel)]="term" />
+    </form>
+ <div *ngFor ="let g of array|filter:term|paginate:{itemsPerPage:20,currentPage:p}">
+  <p>  <img src="{{g.thumbnail}}"/><br>{{g.id}}..{{g.name}}..<b>{{g.price}}..<a href="{{g.link}}">BUY</a></b>
+  </p> </div>
+ <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>
+
+
